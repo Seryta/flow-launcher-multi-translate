@@ -11,6 +11,7 @@ import * as tencent from './tencent'
 import * as transmart from './transmart'
 import * as volcengine from './volcengine'
 import * as youdao from './youdao'
+import * as openai from './openai'
 
 const serviceModules = {
   baidu,
@@ -24,6 +25,7 @@ const serviceModules = {
   transmart,
   volcengine,
   youdao,
+  openai,
 }
 
 export const serviceNamesMap: Record<string, { en: string, tr: string, zh: string }> = {
@@ -38,6 +40,7 @@ export const serviceNamesMap: Record<string, { en: string, tr: string, zh: strin
   transmart: { en: 'Transmart', tr: 'Transmart', zh: '腾讯交互翻译' },
   volcengine: { en: 'Volcengine Translate', tr: 'Volcengine Çeviri', zh: '火山翻译' },
   youdao: { en: 'Youdao Translate', tr: 'Youdao Çeviri', zh: '有道翻译' },
+  openai: { en: 'OpenAI', tr: 'OpenAI', zh: 'OpenAI' },
 }
 
 const services: Record<string, {

@@ -20,6 +20,11 @@ export interface Settings {
     url: string
     token: string
   }
+  openAI: {
+    baseUrl: string
+    apiKey: string
+    model: string
+  }
 }
 
 export function parseSettings(settings: Record<string, string>): Settings {
@@ -40,7 +45,8 @@ export function parseSettings(settings: Record<string, string>): Settings {
     : settings.interfaceLanguage === 'Türkçe' ? 'tr' : 'zh'
 
   const serviceConfigs: Record<string, string> = {}
-  settings.serviceConfigs
+  const serviceConfigsStr = settings.serviceConfigs || ''
+  serviceConfigsStr
     .split('\n')
     .map(i => i.trim())
     .filter(i => i)
@@ -63,6 +69,11 @@ export function parseSettings(settings: Record<string, string>): Settings {
     url: serviceConfigs.MTRANSERVER_URL || '',
     token: serviceConfigs.MTRANSERVER_TOKEN || '',
   }
+  const openAI = {
+    baseUrl: serviceConfigs.OPENAI_BASE_URL || 'https://api.openai.com/v1',
+    apiKey: serviceConfigs.OPENAI_API_KEY || '',
+    model: serviceConfigs.OPENAI_MODEL || 'gpt-4o-mini',
+  }
 
   return {
     services,
@@ -77,5 +88,6 @@ export function parseSettings(settings: Record<string, string>): Settings {
     deepL,
     deepLX,
     mTranServer,
+    openAI,
   }
 }

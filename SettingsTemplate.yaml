@@ -29,7 +29,7 @@ body:
 
         Requires configuration:
 
-        DeepLX, MTranServer
+        DeepLX, MTranServer, OpenAI
 
       defaultValue: "youdao\ndeepl\ngoogle\nbing"
 
@@ -40,13 +40,19 @@ body:
       description: >
         Config services that require configuration
 
-        e.g. DeepLX, MTranServer
+        e.g. DeepLX, MTranServer, OpenAI
 
         DEEPLX_URL=xxxx
 
         MTRANSERVER_URL=xxxx
 
         MTRANSERVER_TOKEN=xxxx
+
+        OPENAI_API_KEY=xxxx
+
+        OPENAI_BASE_URL=https://api.openai.com/v1
+
+        OPENAI_MODEL=gpt-4o-mini
 
       defaultValue: ''
 
@@ -68,7 +74,7 @@ body:
         Request timeout in milliseconds.
 
         Requests exceeding this time will be aborted.
-      defaultValue: '3000'
+      defaultValue: '10000'
 
   - type: input
     attributes:
